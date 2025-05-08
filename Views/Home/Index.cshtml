@@ -5,6 +5,9 @@
 <h1> Bienvenidos al ahorcado de Florencia, Galanti y Matias  </h1>
 </header>
 <main> 
+@foreach (char l in @ViewBag.Letras){
+    <h2 class="guiones">_ </h2>
+}
 <h1> ingrese una letra: </h1>
 <h2> ingrese la palabra: </h2>
 <h3> letras incorrectas: </h3>
