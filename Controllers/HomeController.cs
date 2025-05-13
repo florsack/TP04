@@ -18,6 +18,7 @@ public class HomeController : Controller
         Ahorcado.inicializarAhorcado();
         ViewBag.Palabra = Ahorcado.palabra;
         ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
+        ViewBag.letras = Ahorcado.letras;
         return View();
     }
     public IActionResult Ingresos(string l, string p){

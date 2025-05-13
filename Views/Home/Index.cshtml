@@ -5,8 +5,21 @@
 <h1> Bienvenidos al ahorcado de Florencia, Galanti y Matias  </h1>
 </header>
 <main> 
-@foreach (char l in @ViewBag.Letras){
-    <h2 class="guiones">_ </h2>
+@if (ViewBag.sonPalabrasIguales) {
+
+    
+}
+<h1>Palabra a completar:</h1>
+@foreach (string l in ViewBag.letras) {
+@if (ViewBag.letrasEncontradas.Contains(l)) {
+
+    <h3>@l</h3>
+}
+else {
+
+ <h3>_</h3>
+
+}
 }
 <form action='@Url.Action("Ingresos", "Home")' method = "get">
     <input type="text" name="l"/> Ingrese una letra:
