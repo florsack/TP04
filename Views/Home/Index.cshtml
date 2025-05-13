@@ -8,7 +8,9 @@
 @foreach (char l in @ViewBag.Letras){
     <h2 class="guiones">_ </h2>
 }
-<h1> ingrese una letra: </h1>
-<h2> ingrese la palabra: </h2>
-<h3> letras incorrectas: </h3>
+<form action='@Url.Action("Ingresos", "Home")' method = "get">
+    <input type="text" name="letra"/> Ingrese su letra:
+    <input type="text" name="palabra"/> Ingrese la palabra:
+<form>
+
  </main>

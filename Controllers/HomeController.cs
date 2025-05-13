@@ -20,4 +20,8 @@ public class HomeController : Controller
         ViewBag.Letras = Ahorcado.letras;
         return View();
     }
+    public IActionResult Ingresos(char l){
+        ViewBag.letra = l;
+        return View();
+    }
 }
