@@ -17,12 +17,14 @@ public class HomeController : Controller
     {
         Ahorcado.inicializarAhorcado();
         ViewBag.Palabra = Ahorcado.palabra;
-        ViewBag.Letras = Ahorcado.letras;
+        ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
         return View();
     }
     public IActionResult Ingresos(string l, string p){
-        ViewBag.letra = l;
         ViewBag.palabra = p;
+        ViewBag.sonPalabrasIguales = Ahorcado.chequearPalabra(p);
+        Ahorcado.chequearLetra(l);
+        ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
         return View();
     }
 }
