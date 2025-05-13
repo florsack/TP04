@@ -13,7 +13,14 @@ public static class Ahorcado{
     }
     public static void chequearLetra(string l){
         if (letras.Contains(l)){
-
+            letrasEncontradas.Add(l);
         }
+    }
+    public static bool chequearPalabra(string palabraArriesgada){
+        bool sonIguales = false;
+        if(palabra == palabraArriesgada){
+            sonIguales = true;
+        }
+        return sonIguales;
     }
 }
