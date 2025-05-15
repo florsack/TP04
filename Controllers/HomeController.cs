@@ -17,25 +17,20 @@ public class HomeController : Controller
     {
         Ahorcado.inicializarAhorcado();
         ViewBag.Palabra = Ahorcado.palabra;
+        ViewBag.sonIguales = false;
         ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
         ViewBag.letras = Ahorcado.letras;
-<<<<<<< HEAD
-=======
         return View();
     }
     public IActionResult Ingresos(string l, string p){
-        ViewBag.palabra = p;
-        ViewBag.sonPalabrasIguales = Ahorcado.chequearPalabra(p);
+        ViewBag.Palabra = Ahorcado.palabra;
+        ViewBag.sonIguales = Ahorcado.chequearPalabra(p);
+        ViewBag.letras = Ahorcado.letras;
         Ahorcado.chequearLetra(l);
         ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
->>>>>>> b34eca8735b409e22a94fbee673e320a8128b83d
-        return View();
+        return View("Index");
     }
-    public IActionResult Ingresos(string l, string p){
-        ViewBag.palabra = p;
-        ViewBag.sonPalabrasIguales = Ahorcado.chequearPalabra(p);
-        Ahorcado.chequearLetra(l);
-        ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
-        return View();
+    public IActionResult Ganador(){
+        return View("Ganador");
     }
 }

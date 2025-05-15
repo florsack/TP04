@@ -5,32 +5,21 @@
 <h1> Bienvenidos al ahorcado de Florencia, Galanti y Matias  </h1>
 </header>
 <main> 
-@if (ViewBag.sonPalabrasIguales) {
-<<<<<<< HEAD
-    <a href="@Url.Action("")"
-=======
-
->>>>>>> b34eca8735b409e22a94fbee673e320a8128b83d
-    
+@if (ViewBag.sonIguales) {
+    <a href="@Url.Action("Ganador","Home")"></a>
 }
 <h1>Palabra a completar:</h1>
 @foreach (string l in ViewBag.letras) {
 @if (ViewBag.letrasEncontradas.Contains(l)) {
-
-    <h3>@l</h3>
+    <h3> @l </h3>
 }
 else {
-
- <h3>_</h3>
-
+ <h3> _ </h3>
 }
 }
-<form action='@Url.Action("Ingresos", "Home")' method = "get">
-    <input type="text" name="l"/> Ingrese una letra:
-    <input type="text" name="p"/> Ingrese la palabra:
-<form>
-<<<<<<< HEAD
+<form action ='@Url.Action("Ingresos", "Home")' method = "get">
+    Ingrese una letra: <input type="text" name="l"> 
+    Ingrese la palabra: <input type="text" name="p"> 
+    <input type="submit" value="Ingresar">
+</form>
 </main>
-=======
-</main>
->>>>>>> b34eca8735b409e22a94fbee673e320a8128b83d
