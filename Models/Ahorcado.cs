@@ -41,10 +41,14 @@ public static class Ahorcado{
             }
         }else{
             List<string> letrasOriginalesOrdenadas = new List<string>();
-            letrasOriginalesOrdenadas = letras;
+            foreach (string l in letras){
+                letrasOriginalesOrdenadas.Add(l);
+            }
             letrasOriginalesOrdenadas.Sort();
             List<string> letrasIngresadasOrdenadas = new List<string>();
-            letrasIngresadasOrdenadas = letrasEncontradas;
+            foreach (string l in letrasEncontradas){
+                letrasIngresadasOrdenadas.Add(l);
+            }
             letrasIngresadasOrdenadas.Sort();
             if(letrasOriginalesOrdenadas == letrasIngresadasOrdenadas){
                 sonIguales = true;
