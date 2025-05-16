@@ -24,13 +24,13 @@ public class HomeController : Controller
         return View();
     }
     public IActionResult Ingresos(string l, string p){
+        ViewBag.letras = Ahorcado.letras;
+        Ahorcado.chequearLetra(l);
+        ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
         ViewBag.Palabra = Ahorcado.palabra;
         if (Ahorcado.chequearPalabra(p) == true){
             return RedirectToAction("Ganador");
         }
-        ViewBag.letras = Ahorcado.letras;
-        Ahorcado.chequearLetra(l);
-        ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
         ViewBag.intentosRestantes= 10 - Ahorcado.intentos;
         if (Ahorcado.intentos >= 10)
         {
@@ -40,9 +40,11 @@ public class HomeController : Controller
     }
     
     public IActionResult Perdedor(){
+        ViewBag.Palabra = Ahorcado.palabra;
         return View("Perdedor");
     }
     public IActionResult Ganador(){
+        
         return View("Ganador");
     }
 }

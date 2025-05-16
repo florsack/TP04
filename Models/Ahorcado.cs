@@ -50,8 +50,17 @@ public static class Ahorcado{
                 letrasIngresadasOrdenadas.Add(l);
             }
             letrasIngresadasOrdenadas.Sort();
-            if(letrasOriginalesOrdenadas == letrasIngresadasOrdenadas){
-                sonIguales = true;
+            if (letrasOriginalesOrdenadas.Count == letrasIngresadasOrdenadas.Count) {
+                bool iguales = true;
+                for (int i = 0; i < letrasOriginalesOrdenadas.Count; i++) {
+                    if (letrasOriginalesOrdenadas[i] != letrasIngresadasOrdenadas[i]) {
+                        iguales = false;
+                        break;
+                    }
+                }
+                if (iguales) {
+                    sonIguales = true;
+                }
             }
         }
         return sonIguales;
