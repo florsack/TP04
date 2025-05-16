@@ -25,3 +25,7 @@ footer {
 /*.guiones {
   float:right;
 }*/
+div img{
+  width: 20%;
+  height: auto;
+}

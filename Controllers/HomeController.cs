@@ -17,7 +17,7 @@ public class HomeController : Controller
     {
         Ahorcado.inicializarAhorcado();
         ViewBag.Palabra = Ahorcado.palabra;
-        ViewBag.intentosRestantes= 10 - Ahorcado.intentos;
+        ViewBag.intentosRestantes= 9 - Ahorcado.intentos;
         ViewBag.sonIguales = false;
         ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
         ViewBag.letras = Ahorcado.letras;
@@ -31,8 +31,8 @@ public class HomeController : Controller
         if (Ahorcado.chequearPalabra(p) == true){
             return RedirectToAction("Ganador");
         }
-        ViewBag.intentosRestantes= 10 - Ahorcado.intentos;
-        if (Ahorcado.intentos >= 10)
+        ViewBag.intentosRestantes= 9 - Ahorcado.intentos;
+        if (Ahorcado.intentos >= 9)
         {
             return RedirectToAction("Perdedor");
         }
@@ -44,7 +44,6 @@ public class HomeController : Controller
         return View("Perdedor");
     }
     public IActionResult Ganador(){
-        
         return View("Ganador");
     }
 }
