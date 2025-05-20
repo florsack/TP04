@@ -33,4 +33,12 @@
     <input type="submit" value="Ingresar">
 </form>
 </section>
+<div class="ingresosMalos">
+    @if (ViewBag.ingresosMalos.Lenght > 0){
+        <h4>Errores: </h4>
+        @foreach(string l in ViewBag.ingresosMalos){
+            <h4>@l</h4>
+        }
+    }
+</div>
 </main>
