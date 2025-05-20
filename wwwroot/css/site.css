@@ -79,6 +79,7 @@ header{
   background-color: rgb(26, 26, 119);
   color: white;
   border: 1px solid rgb(26, 26, 119);
+  transition: ease-in-out 0.s;
 }
 
 .boton:hover{
@@ -87,17 +88,29 @@ header{
   border: 1px solid rgb(26, 26, 119);
   
 }
+.boton:active{
+  background-color: rgb(214, 214, 214);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(26, 26, 119);
+}
 
 .ingresosMalos{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  
 }
 
 .ingresosMalos h4{
   font-size: xx-large;
   margin: 0;
+  color: red;
 }
 .ingresosMalos h3{
   clear: both;
+}
+
+.imagenPerdedor{
+  width: 50%;
+  height: auto;
 }
