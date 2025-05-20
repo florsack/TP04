@@ -28,16 +28,16 @@
 <section class="ingresos">
 <form action ='@Url.Action("Ingresos", "Home")' method = "get">
     Ingrese una letra: <input type="text" name="l"> 
-    <input type="submit" value="Ingresar">
+<button type="submit" class="boton">Ingresar</button class= "boton">
     Ingrese la palabra: <input type="text" name="p"> 
-    <input type="submit" value="Ingresar">
+<button type="submit" class="boton">Ingresar</button class= "boton">
 </form>
 </section>
 <div class="ingresosMalos">
-    @if (ViewBag.ingresosMalos.Lenght > 0){
-        <h4>Errores: </h4>
+    @if (ViewBag.ingresosMalos.Count > 0){
+        <h3>Errores: </h3>
         @foreach(string l in ViewBag.ingresosMalos){
-            <h4>@l</h4>
+            <h4>@l.ToUpper()</h4>
         }
     }
 </div>
