@@ -6,21 +6,31 @@
 <h2>Advertencia, le quedan @ViewBag.intentosRestantes intentos </h2>
 </header>
 <main> 
-<h1>Palabra a completar:</h1>
-<div>
-    <img src="/imgs/@(ViewBag.intentosRestantes).png" alt="imgAhorcado">
+    <h1>Palabra a completar:</h1>
+<div class="juego">
+    <div class="imagenAhorcado">
+        <img src="/imgs/@(ViewBag.intentosRestantes).png" alt="imgAhorcado">
+    </div>
+    <div class="letras">
+    @foreach (string l in ViewBag.letras) {
+        <div class="estructuraGuiones">
+    @if (ViewBag.letrasEncontradas.Contains(l)) {
+        <h3 class="guiones"> @l.ToUpper() </h3>
+    } else {
+    <h3 class="guiones"> _ </h3>
+    }
+    </div>
+    }
+    </div>
 </div>
-@foreach (string l in ViewBag.letras) {
-@if (ViewBag.letrasEncontradas.Contains(l)) {
-    <h3> @l.ToUpper() </h3>
-} else {
- <h3> _ </h3>
-}
-}
+
+</div>
+<section class="ingresos">
 <form action ='@Url.Action("Ingresos", "Home")' method = "get">
     Ingrese una letra: <input type="text" name="l"> 
     <input type="submit" value="Ingresar">
     Ingrese la palabra: <input type="text" name="p"> 
     <input type="submit" value="Ingresar">
 </form>
+</section>
 </main>
