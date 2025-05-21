@@ -12,22 +12,22 @@
         <img src="/imgs/@(ViewBag.intentosRestantes).png" alt="imgAhorcado">
     </div>
     <div class="letras">
-    @foreach (string l in ViewBag.letras) {
-        <div class="estructuraGuiones">
-    @if (ViewBag.letrasEncontradas.Contains(l)) {
-        <h3 class="guiones"> @l.ToUpper() </h3>
-    } else {
-    <h3 class="guiones"> _ </h3>
-    }
-    </div>
-    }
+        @foreach (string l in ViewBag.letras) {
+            <div class="estructuraGuiones">
+        @if (ViewBag.letrasEncontradas.Contains(l)) {
+            <h3 class="guiones"> @l.ToUpper() </h3>
+        } else {
+        <h3 class="guiones"> _ </h3>
+        }
+        </div>
+        }
     </div>
 </div>
 
 </div>
 <section class="ingresos">
 <form action ='@Url.Action("Ingresos", "Home")' method = "get">
-    Ingrese una letra: <input type="text" name="l"> 
+    Ingrese una letra: <input type="text" name="l" maxlenght="1" pattern="[A-Za-z]"> 
 <button type="submit" class="boton">Ingresar</button class= "boton">
     Ingrese la palabra: <input type="text" name="p"> 
 <button type="submit" class="boton">Ingresar</button class= "boton">
@@ -38,7 +38,6 @@
         <h3>Errores: </h3>
         @foreach(string l in ViewBag.ingresosMalos){
             <h4>@l.ToUpper()</h4>
-            
         }
     }
 </div>
