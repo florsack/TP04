@@ -1,13 +1,13 @@
 namespace TP04;
-public static class Ahorcado{
-    public static string palabra {private set; get;}
-    public static List<string> letras {private set; get;} = new List<string>();
-    public static List<string> ingresosMalos {private set; get;} = new List<string>();
-    public static List<string> letrasEncontradas {private set; get;} = new List<string>();
-    public static int intentos {private set; get;}
+public  class Ahorcado{
+    public  string palabra {private set; get;}
+    public  List<string> letras {private set; get;} = new List<string>();
+    public  List<string> ingresosMalos {private set; get;} = new List<string>();
+    public  List<string> letrasEncontradas {private set; get;} = new List<string>();
+    public  int intentos {private set; get;}
 
 
-    public static void inicializarAhorcado(){
+    public  void inicializarAhorcado(){
         palabra = "florencia";
         intentos = 0;
         letras.Clear();
@@ -17,7 +17,7 @@ public static class Ahorcado{
             }
         }
     }
-    public static void chequearLetra(string l){
+    public  void chequearLetra(string l){
         if (l!=null){
             if (letras.Contains(l.ToLower())){
                 if (!letrasEncontradas.Contains(l.ToLower())){
@@ -31,7 +31,7 @@ public static class Ahorcado{
             }
         }
     }
-    public static bool chequearPalabra(string palabraArriesgada){
+    public  bool chequearPalabra(string palabraArriesgada){
         bool sonIguales = false;
         if (palabraArriesgada != null){
             if(palabra == palabraArriesgada.ToLower()){

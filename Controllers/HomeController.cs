@@ -15,34 +15,39 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        Ahorcado.inicializarAhorcado();
-        ViewBag.Palabra = Ahorcado.palabra;
-        ViewBag.intentosRestantes= 9 - Ahorcado.intentos;
-        ViewBag.ingresosMalos = Ahorcado.ingresosMalos;
+        Ahorcado juego = new Ahorcado();
+        juego.inicializarAhorcado();
+        HttpContext.Session.SetString("juego", objeto.ObjectToString(juego));
+        ViewBag.Palabra = juego.palabra;
+        ViewBag.intentosRestantes= 9 - juego.intentos;
+        ViewBag.ingresosMalos = juego.ingresosMalos;
         ViewBag.sonIguales = false;
-        ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
-        ViewBag.letras = Ahorcado.letras;
+        ViewBag.letrasEncontradas = juego.letrasEncontradas;
+        ViewBag.letras = juego.letras;
         return View();
     }
     public IActionResult Ingresos(string l, string p){
-        ViewBag.letras = Ahorcado.letras;
-        Ahorcado.chequearLetra(l);
-        ViewBag.letrasEncontradas = Ahorcado.letrasEncontradas;
-        ViewBag.ingresosMalos = Ahorcado.ingresosMalos;
-        ViewBag.Palabra = Ahorcado.palabra;
-        if (Ahorcado.chequearPalabra(p) == true){
+        Ahorcado juego = objeto.StringToObject<Ahorcado>(HttpContext.Session.GetString("juego"));
+        ViewBag.letras = juego.letras;
+        juego.chequearLetra(l);
+        ViewBag.letrasEncontradas = juego.letrasEncontradas;
+        ViewBag.ingresosMalos = juego.ingresosMalos;
+        ViewBag.Palabra = juego.palabra;
+        if (juego.chequearPalabra(p) == true){
             return RedirectToAction("Ganador");
         }
-        ViewBag.intentosRestantes= 9 - Ahorcado.intentos;
-        if (Ahorcado.intentos >= 9)
+        ViewBag.intentosRestantes= 9 - juego.intentos;
+        if (juego.intentos >= 9)
         {
             return RedirectToAction("Perdedor");
         }
+        HttpContext.Session.SetString("juego", objeto.ObjectToString(juego));
         return View("Index");
     }
     
     public IActionResult Perdedor(){
-        ViewBag.Palabra = Ahorcado.palabra;
+        Ahorcado juego = objeto.StringToObject<Ahorcado>(HttpContext.Session.GetString("juego"));
+        ViewBag.Palabra = juego.palabra;
         return View("Perdedor");
     }
     public IActionResult Ganador(){
