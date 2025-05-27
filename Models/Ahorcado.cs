@@ -1,10 +1,12 @@
+using Newtonsoft.Json;
 namespace TP04;
 public  class Ahorcado{
     public  string palabra {private set; get;}
     public  List<string> letras {private set; get;} = new List<string>();
     public  List<string> ingresosMalos {private set; get;} = new List<string>();
     public  List<string> letrasEncontradas {private set; get;} = new List<string>();
-    public  int intentos {private set; get;}
+    [JsonProperty]
+    public  int intentos {private set; get;} 
 
 
     public  void inicializarAhorcado(){
@@ -23,11 +25,13 @@ public  class Ahorcado{
                 if (!letrasEncontradas.Contains(l.ToLower())){
                     letrasEncontradas.Add(l.ToLower());
                 }
-            } else {
-            if(!ingresosMalos.Contains(l.ToLower())){
-                ingresosMalos.Add(l.ToLower());
-            }
-            intentos++;
+            } 
+            else 
+            {
+                if(!ingresosMalos.Contains(l.ToLower())){
+                    ingresosMalos.Add(l.ToLower());
+                }
+                intentos++;
             }
         }
     }
